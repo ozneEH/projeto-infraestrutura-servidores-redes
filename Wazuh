@@ -1,0 +1,26 @@
+│   │   Instalação do Wazuh (Servidor e Agente):
+│   │   1. Requisitos:
+│   │      - SO: Ubuntu 20.04 LTS ou Debian 11
+│   │      - 4 vCPU, 8 GB RAM (mínimo)
+│   │   2. Instalação via script oficial:
+│   │      bash
+│   │      curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
+│   │      bash wazuh-install.sh -a
+│   │      
+│   │   3. O instalador configura:
+│   │      - Wazuh Manager
+│   │      - Filebeat (para envio de logs ao Elasticsearch)
+│   │      - Elasticsearch + Kibana com dashboards do Wazuh
+│   │   4. Acesse o dashboard:
+│   │      - URL: https://
+│   │      - Usuário: admin / Senha padrão fornecida no final da instalação
+│   │   5. Configure os agentes nas máquinas clientes (Windows/Linux):
+│   │      - Baixe o instalador do agente no site
+│   │      - Aponte para o IP do servidor Wazuh durante a instalação
+│   └── configuracao.md
+│       Configurações comuns no Wazuh:
+│       1. Criar grupos de agentes no Manager (/var/ossec/etc/ossec.conf)
+│       2. Configurar regras personalizadas
+│       3. Adicionar monitoramento de arquivos e logs específicos
+│       4. Integrações com Active Directory e Sysmon (em máquinas Windows)
+│       5. Alertas por e-mail ou integração com SIEM
