@@ -1,0 +1,16 @@
+Instalação do Kali Linux:
+
+1. Baixe a imagem ISO do Kali em: [https://www.kali.org/get-kali/](https://www.kali.org/get-kali/)
+2. Use o Rufus (Windows) ou balenaEtcher (Linux/macOS) para criar um pendrive bootável.
+3. Inicie o boot pelo pendrive e escolha "Install" ou "Graphical Install".
+4. Siga as etapas do instalador:
+   - Idioma e localização
+   - Nome do host (ex: kali)
+   - Domínio (opcional)
+   - Crie um usuário e senha (desde 2020, o Kali não usa mais root por padrão)
+   - Particionamento automático ou manual
+5. Aguarde a instalação dos pacotes.
+6. Instale o GRUB no disco principal e reinicie.
+7. Após login, atualize o sistema:
+   ```bash
+   sudo apt update && sudo apt upgrade -y
