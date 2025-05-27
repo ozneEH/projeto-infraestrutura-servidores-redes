@@ -1,18 +1,18 @@
-🪟 Guia de Instalação e Configuração – Windows Server
+## 🪟 Guia de Instalação e Configuração – Windows Server
 
-✅ 1. Instalação do Windows Server
+# ✅ 1. Instalação do Windows Server
 
-🔽 Baixe a ISO
+# 🔽 Baixe a ISO
 
-👉 Site oficial da Microsoft
+# 👉 Site oficial da Microsoft
 
-💾 Crie o pendrive bootável
+# 💾 Crie o pendrive bootável
 
 Use ferramentas como:
 
 Rufus
 
-🚀 Prossiga com a instalação
+# 🚀 Prossiga com a instalação
 
 Inicie o boot pelo pendrive
 
@@ -26,7 +26,7 @@ Disco onde o sistema será instalado
 
 Após a instalação, defina uma senha para o usuário Administrador
 
-⚙️ Configurações Iniciais
+# ⚙️ Configurações Iniciais
 
 Configure IP fixo (opcional, mas recomendado para servidores)
 
@@ -34,7 +34,7 @@ Ative o Windows e instale atualizações
 
 Altere o nome do computador
 
-📡 Configuração do Servidor DNS
+# 📡 Configuração do Servidor DNS
 
 Acesse o Gerenciador de Servidores
 
@@ -56,7 +56,7 @@ CNAME (alias), conforme necessário
 
 Configure encaminhadores DNS externos (ex: 8.8.8.8)
 
-🧯 Configuração do Servidor DHCP
+# 🧯 Configuração do Servidor DHCP
 
 No Gerenciador de Servidores, adicione a função Servidor DHCP
 
@@ -74,9 +74,9 @@ Ative o escopo
 
 Autorize o servidor DHCP no Active Directory (se aplicável)
 
-🧱 Active Directory – active-directory/configuracao.md
+# 🧱 Active Directory – active-directory/configuracao.md
 
-🛠️ Configuração do Active Directory (AD DS)
+# 🛠️ Configuração do Active Directory (AD DS)
 
 Adicione a função Serviços de Domínio Active Directory (AD DS)
 
