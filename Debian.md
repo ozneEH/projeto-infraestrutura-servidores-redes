@@ -1,54 +1,70 @@
-Guia de Instalação e Configuração Debian
-1. Instalação do Debian
-Baixe a ISO do Debian no site oficial:
-https://www.debian.org/distrib/
+📘 Guia de Instalação e Configuração – Debian
+✅ 1. Instalação do Debian
+🔽 Baixe a ISO
+Acesse o site oficial do Debian:
+👉 https://www.debian.org/distrib/
 
-Crie um pendrive bootável usando Rufus ou balenaEtcher.
+💿 Crie um pendrive bootável
+Use ferramentas como:
 
-Inicie o boot pelo pendrive e escolha a opção:
+Rufus
+
+balenaEtcher
+
+🚀 Inicie a instalação
+Dê boot pelo pendrive e selecione:
 
 Install ou
 
 Graphical Install
 
-Configure o sistema:
+Siga os passos de configuração:
 
 Idioma e localização
 
-Nome do host e domínio (exemplo: debian e exemplo.local)
+Nome do host e domínio (ex: debian e exemplo.local)
 
-Usuário root e usuário normal
+Criação de usuários (root e normal)
 
-Particionamento (usar todo o disco ou manual)
+Particionamento do disco (automático ou manual)
 
-Aguarde a instalação dos pacotes base.
+Após isso:
 
-Instale o GRUB no disco principal e finalize a instalação.
+Aguarde a instalação dos pacotes base
 
-Após o reboot, configure IP fixo e atualize o sistema:
+Instale o GRUB no disco principal
+
+Finalize a instalação
+
+🔧 Pós-instalação
+Configure IP fixo:
 
 bash
 Copiar
 Editar
 sudo nano /etc/network/interfaces
-
-sudo apt update && sudo apt upgrade -y
-2. Configuração do Servidor DNS (BIND9)
-Arquivo: dns/configuracao.md
-
-Instale o BIND9:
+Atualize o sistema:
 
 bash
 Copiar
 Editar
+sudo apt update && sudo apt upgrade -y
+📡 2. Configuração do Servidor DNS (BIND9)
+📁 Arquivo: dns/configuracao.md
+
+🛠️ Instale o BIND9:
+bash
+Copiar
+Editar
 sudo apt install bind9 bind9utils bind9-doc -y
-Edite o arquivo de configuração local:
+⚙️ Configure a zona local:
+Edite o arquivo:
 
 bash
 Copiar
 Editar
 sudo nano /etc/bind/named.conf.local
-Adicione o seguinte bloco:
+Adicione:
 
 conf
 Copiar
@@ -57,41 +73,38 @@ zone "exemplo.local" {
   type master;
   file "/etc/bind/db.exemplo.local";
 };
-Crie o arquivo de zona baseado no modelo padrão:
-
+📄 Crie o arquivo de zona:
 bash
 Copiar
 Editar
 sudo cp /etc/bind/db.local /etc/bind/db.exemplo.local
 sudo nano /etc/bind/db.exemplo.local
-Reinicie o serviço BIND9:
-
+🔄 Reinicie o serviço:
 bash
 Copiar
 Editar
 sudo systemctl restart bind9
-Teste a configuração com:
-
+✅ Teste a configuração:
 bash
 Copiar
 Editar
 dig @localhost exemplo.local
-3. Configuração do Servidor DHCP (isc-dhcp-server)
-Arquivo: dhcp/configuracao.md
+🧭 3. Configuração do Servidor DHCP (isc-dhcp-server)
+📁 Arquivo: dhcp/configuracao.md
 
-Instale o servidor DHCP:
-
+🛠️ Instale o servidor DHCP:
 bash
 Copiar
 Editar
 sudo apt install isc-dhcp-server -y
-Configure o arquivo principal:
+⚙️ Configure o DHCP:
+Edite o arquivo principal:
 
 bash
 Copiar
 Editar
 sudo nano /etc/dhcp/dhcpd.conf
-Exemplo de configuração:
+Adicione:
 
 conf
 Copiar
@@ -102,20 +115,23 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
   option domain-name-servers 192.168.1.10;
   option domain-name "exemplo.local";
 }
-Defina a interface de rede para o DHCP no arquivo /etc/default/isc-dhcp-server:
+🌐 Defina a interface de rede:
+bash
+Copiar
+Editar
+sudo nano /etc/default/isc-dhcp-server
+Adicione ou edite:
 
 bash
 Copiar
 Editar
 INTERFACESv4="ens33"
-Reinicie o serviço DHCP:
-
+🔄 Reinicie o serviço:
 bash
 Copiar
 Editar
 sudo systemctl restart isc-dhcp-server
-Verifique o status do serviço:
-
+✅ Verifique o status:
 bash
 Copiar
 Editar
