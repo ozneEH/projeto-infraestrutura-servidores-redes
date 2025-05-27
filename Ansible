@@ -1,30 +1,35 @@
-ANSIBLE.MD
-# Ansible - Automação de Configuração
+## 🤖 Ansible - Automação de Configuração
 
 Este diretório contém playbooks e exemplos de automação de infraestrutura utilizando Ansible.
 
-## Requisitos
+# 📋 Requisitos
 
-- Máquina de controle com Ansible instalado
-- Acesso SSH às máquinas gerenciadas
-- Chave SSH distribuída ou senha configurada no inventário
+Máquina de controle com Ansible instalado
 
-## Estrutura
+Acesso SSH às máquinas gerenciadas
 
-- `playbooks/`: Contém os arquivos `.yml` de automação
-  - `instalar-dns.yml`: Instala e configura DNS em servidores Linux
-  - `configurar-usuarios.yml`: Cria usuários em lote
+Chave SSH distribuída ou senha configurada no inventário
 
-## Comandos Úteis
+# 📂 Estrutura
 
-Executar um playbook:
-```bash
+playbooks/: Contém os arquivos .yml de automação
+
+instalar-dns.yml: Instala e configura DNS em servidores Linux
+
+configurar-usuarios.yml: Cria usuários em lote
+
+# 🛠️ Comandos Úteis
+
+# ▶️ Executar um playbook
+
 ansible-playbook -i inventario.ini playbooks/instalar-dns.yml
 
-Verificar a sintaxe de um playbook:
+# 🔍 Verificar a sintaxe de um playbook
+
 ansible-playbook --syntax-check playbooks/instalar-dns.yml
-yaml
-### `ansible/playbooks/instalar-dns.yml`
+
+# 📜 Exemplo de Playbook: instalar-dns.yml
+
 - name: Instalar e configurar DNS (BIND9)
   hosts: dns_servers
   become: yes
@@ -57,7 +62,8 @@ yaml
         name: bind9
         state: restarted
 
-ansible/playbooks/configurar-usuarios.yml
+# 👥 Exemplo de Playbook: configurar-usuarios.yml
+
 - name: Criar usuários em servidores Linux
   hosts: all
   become: yes
@@ -72,3 +78,6 @@ ansible/playbooks/configurar-usuarios.yml
         state: present
         groups: sudo
       loop: "{{ usuarios }}"
+
+Pronto! Agora você tem automações básicas com Ansible funcionando! 🚀
+
