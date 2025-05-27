@@ -1,12 +1,12 @@
-📘 Guia de Instalação e Configuração – Debian
+## 📘 Guia de Instalação e Configuração – Debian
 
-✅ 1. Instalação do Debian
+# ✅ 1. Instalação do Debian
 
-🔽 Baixe a ISO
+# 🔽 Baixe a ISO
 
 Acesse o site oficial do Debian:👉 https://www.debian.org/distrib/
 
-📏 Crie um pendrive bootável
+# 📏 Crie um pendrive bootável
 
 Use ferramentas como:
 
@@ -14,7 +14,7 @@ Rufus
 
 balenaEtcher
 
-🚀 Inicie a instalação
+# 🚀 Inicie a instalação
 
 Dê boot pelo pendrive e selecione:
 
@@ -40,7 +40,7 @@ Instale o GRUB no disco principal
 
 Finalize a instalação
 
-🔧 Pós-instalação
+# 🔧 Pós-instalação
 
 Configure IP fixo:
 
@@ -50,15 +50,15 @@ Atualize o sistema:
 
 sudo apt update && sudo apt upgrade -y
 
-📡 2. Configuração do Servidor DNS (BIND9)
+# 📡 2. Configuração do Servidor DNS (BIND9)
 
-📁 Arquivo: dns/configuracao.md
+# 📁 Arquivo: dns/configuracao.md
 
-🛠️ Instale o BIND9:
+# 🛠️ Instale o BIND9
 
 sudo apt install bind9 bind9utils bind9-doc -y
 
-⚙️ Configure a zona local:
+# ⚙️ Configure a zona local
 
 Edite o arquivo:
 
@@ -71,34 +71,34 @@ zone "exemplo.local" {
   file "/etc/bind/db.exemplo.local";
 };
 
-📄 Crie o arquivo de zona:
+# 📄 Crie o arquivo de zona
 
 sudo cp /etc/bind/db.local /etc/bind/db.exemplo.local
 sudo nano /etc/bind/db.exemplo.local
 
-🔄 Reinicie o serviço:
+# 🔄 Reinicie o serviço
 
 sudo systemctl restart bind9
 
-✅ Teste a configuração:
+# ✅ Teste a configuração
 
 dig @localhost exemplo.local
 
-🧯 3. Configuração do Servidor DHCP (isc-dhcp-server)
+# 🧯 3. Configuração do Servidor DHCP (isc-dhcp-server)
 
-📁 Arquivo: dhcp/configuracao.md
+# 📁 Arquivo: dhcp/configuracao.md
 
-🛠️ Instale o servidor DHCP:
+# 🛠️ Instale o servidor DHCP
 
 sudo apt install isc-dhcp-server -y
 
-⚙️ Configure o DHCP:
+# ⚙️ Configure o DHCP
 
 Edite o arquivo principal:
 
 sudo nano /etc/dhcp/dhcpd.conf
 
-Adicione:
+Exemplo de configuração:
 
 subnet 192.168.1.0 netmask 255.255.255.0 {
   range 192.168.1.100 192.168.1.200;
@@ -107,7 +107,9 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
   option domain-name "exemplo.local";
 }
 
-🌐 Defina a interface de rede:
+# 🌐 Defina a interface de rede
+
+Edite o arquivo:
 
 sudo nano /etc/default/isc-dhcp-server
 
@@ -115,13 +117,13 @@ Adicione ou edite:
 
 INTERFACESv4="ens33"
 
-🔄 Reinicie o serviço:
+# 🔄 Reinicie o serviço
 
 sudo systemctl restart isc-dhcp-server
 
-✅ Verifique o status:
+# ✅ Verifique o status
 
 sudo systemctl status isc-dhcp-server
 
-Pronto! Seu ambiente Debian está instalado e com os serviços DNS e DHCP configurados.
+Pronto! Seu ambiente Debian está instalado e com os serviços DNS e DHCP configurados. ✅
 
